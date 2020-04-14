@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-10T09:37:51.760Z</updated>
+  <updated>2020-04-14T14:06:11.059Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,81 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>abc</title>
-    <link href="http://yoursite.com/2020/04/10/abc/"/>
-    <id>http://yoursite.com/2020/04/10/abc/</id>
-    <published>2020-04-10T09:37:51.000Z</published>
-    <updated>2020-04-10T09:37:51.760Z</updated>
+    <title>github上的第一次写作</title>
+    <link href="http://yoursite.com/2020/04/14/github%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%86%99%E4%BD%9C/"/>
+    <id>http://yoursite.com/2020/04/14/github%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%86%99%E4%BD%9C/</id>
+    <published>2020-04-14T13:36:01.000Z</published>
+    <updated>2020-04-14T14:06:11.059Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;开启一个全新的旅程,
+        
+      
     
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>categories</title>
-    <link href="http://yoursite.com/2020/04/10/categories/"/>
-    <id>http://yoursite.com/2020/04/10/categories/</id>
-    <published>2020-04-10T09:36:15.000Z</published>
-    <updated>2020-04-10T09:36:15.072Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
+      <category term="写作" scheme="http://yoursite.com/categories/%E5%86%99%E4%BD%9C/"/>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>test-b</title>
-    <link href="http://yoursite.com/2020/04/10/test-b/"/>
-    <id>http://yoursite.com/2020/04/10/test-b/</id>
-    <published>2020-04-10T09:35:17.000Z</published>
-    <updated>2020-04-10T09:35:17.053Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>test-a</title>
-    <link href="http://yoursite.com/2020/04/10/test-a/"/>
-    <id>http://yoursite.com/2020/04/10/test-a/</id>
-    <published>2020-04-10T09:33:14.000Z</published>
-    <updated>2020-04-10T09:33:54.797Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="xxx" scheme="http://yoursite.com/categories/xxx/"/>
-    
-    
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test-yine1</title>
-    <link href="http://yoursite.com/2020/04/10/test-yine/"/>
-    <id>http://yoursite.com/2020/04/10/test-yine/</id>
-    <published>2020-04-10T08:47:37.000Z</published>
-    <updated>2020-04-10T08:47:37.374Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
+      <category term="写作" scheme="http://yoursite.com/tags/%E5%86%99%E4%BD%9C/"/>
     
   </entry>
   
