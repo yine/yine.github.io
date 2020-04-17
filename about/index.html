@@ -212,43 +212,20 @@
 
 <div class="comments" id="comments">
   
+  <script defer id="dsq-count-scr" src="//留下您的脚印.disqus.com/count.js"></script>
   
-  <div class="commentjs" id="comment-thread"></div>
-  <link rel="stylesheet" href="/css/commentjs.css">
-  <script defer type="text/javascript" src="/js/marked.min.js"></script>
-  <script defer type="text/javascript" src="/js/timeago.min.js"></script>
-  <script defer type="text/javascript" src="/js/highlight.min.js"></script>
-  <script defer type="text/javascript" src="/js/commentjs.js"></script>
+  <div id="disqus_thread" class="disqus_thread"></div>
   <script type="text/javascript">
-  $(document).ready(function () {
-    getComments({
-      "type": "",
-      "user": "",
-      "repo": "",
-      "client_id": "",
-      "client_secret": "",
-      "no_comment": "这个页面还没有评论，现在就去评论吧！",
-      "go_to_comment": "去评论",
-      "issue_title": "关于",
-      "btn_class": "button",
-      "comments_target": "#comment-thread"
-    });
-    marked.setOptions({
-      "highlight": function (code, lang) {
-        return hljs.highlightAuto(code).value;
-      }
-    });
-    function mark() {
-      var markdowns = document.getElementsByClassName("markdown");
-      for (var i = 0; i < markdowns.length; ++i){
-        if (markdowns[i].innerHTML) {
-          markdowns[i].innerHTML = marked(markdowns[i].innerHTML);
-        }
-      }
-    }
-    window.addEventListener("DOMContentLoaded", mark, false);
-    window.addEventListener("load", mark, false);
-  });
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/about/index.html";
+    this.page.identifier = "about/index.html";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://留下您的脚印.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
   </script>
   
   
@@ -340,9 +317,9 @@
         
         <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
         
-        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        <li><i class="fas fa-link"></i><a href="https://blog.csdn.net/y_xianjun" target="_blank">CSDN</a></li>
         
-        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        <li><i class="fas fa-link"></i><a href="https://b2b.163.com/product/qiyu" target="_blank">Netease-WE</a></li>
         
       </ul>
     </div>

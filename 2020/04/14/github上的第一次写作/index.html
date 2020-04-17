@@ -229,10 +229,20 @@
         
         
         
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2020/04/14/github%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%86%99%E4%BD%9C/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2020/04/14/github上的第一次写作/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
       <p>开启一个全新的旅程, GO!</p>
+<h1 id="大标题"><a href="#大标题" class="headerlink" title="大标题"></a>大标题</h1><p>test</p>
+<h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p>test</p>
+<h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><p>test</p>
 
     </main>
     <footer class="post-footer">
@@ -252,6 +262,16 @@
   <button id="reward-button" class="button" disable="enable">打赏</button>
   <div id="qr" class="qr" style="display: none;" aria-hidden="true">
     
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付"/>
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝"/>
+      <span>支付宝</span>
+    </div>
     
     
   </div>
@@ -278,43 +298,20 @@
 
 <div class="comments" id="comments">
   
+  <script defer id="dsq-count-scr" src="//留下您的脚印.disqus.com/count.js"></script>
   
-  <div class="commentjs" id="comment-thread"></div>
-  <link rel="stylesheet" href="/css/commentjs.css">
-  <script defer type="text/javascript" src="/js/marked.min.js"></script>
-  <script defer type="text/javascript" src="/js/timeago.min.js"></script>
-  <script defer type="text/javascript" src="/js/highlight.min.js"></script>
-  <script defer type="text/javascript" src="/js/commentjs.js"></script>
+  <div id="disqus_thread" class="disqus_thread"></div>
   <script type="text/javascript">
-  $(document).ready(function () {
-    getComments({
-      "type": "",
-      "user": "",
-      "repo": "",
-      "client_id": "",
-      "client_secret": "",
-      "no_comment": "这个页面还没有评论，现在就去评论吧！",
-      "go_to_comment": "去评论",
-      "issue_title": "github上的第一次写作",
-      "btn_class": "button",
-      "comments_target": "#comment-thread"
-    });
-    marked.setOptions({
-      "highlight": function (code, lang) {
-        return hljs.highlightAuto(code).value;
-      }
-    });
-    function mark() {
-      var markdowns = document.getElementsByClassName("markdown");
-      for (var i = 0; i < markdowns.length; ++i){
-        if (markdowns[i].innerHTML) {
-          markdowns[i].innerHTML = marked(markdowns[i].innerHTML);
-        }
-      }
-    }
-    window.addEventListener("DOMContentLoaded", mark, false);
-    window.addEventListener("load", mark, false);
-  });
+  var disqus_config = function () {
+    this.page.url = "http://yoursite.com/2020/04/14/github%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%86%99%E4%BD%9C/";
+    this.page.identifier = "2020/04/14/github上的第一次写作/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "https://留下您的脚印.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
   </script>
   
   
@@ -387,6 +384,12 @@
     
     
     
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#大标题"><span class="toc-text">大标题</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二级标题"><span class="toc-text">二级标题</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#三级标题"><span class="toc-text">三级标题</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
     
     
     <hr>
@@ -411,9 +414,9 @@
         
         <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
         
-        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        <li><i class="fas fa-link"></i><a href="https://blog.csdn.net/y_xianjun" target="_blank">CSDN</a></li>
         
-        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        <li><i class="fas fa-link"></i><a href="https://b2b.163.com/product/qiyu" target="_blank">Netease-WE</a></li>
         
       </ul>
     </div>
