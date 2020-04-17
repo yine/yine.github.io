@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>0度工作室</title>
   
-  <subtitle>这是一个测试页</subtitle>
+  <subtitle>匠人，如果觉得自己的作品“太棒了”的时候，就已经在走下坡路了。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-14T14:06:11.059Z</updated>
+  <updated>2020-04-17T08:19:03.063Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FreeSWITH源码编译</title>
+    <link href="http://yoursite.com/2020/04/17/FreeSWITH%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/"/>
+    <id>http://yoursite.com/2020/04/17/FreeSWITH%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/</id>
+    <published>2020-04-17T07:41:01.000Z</published>
+    <updated>2020-04-17T08:19:03.063Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;源代码导读及编译指南&quot;&gt;&lt;a href=&quot;#源代码导读及编译指南&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开源软交换" scheme="http://yoursite.com/categories/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BA%A4%E6%8D%A2/"/>
+    
+    
+      <category term="开源软交换" scheme="http://yoursite.com/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BA%A4%E6%8D%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>github上的第一次写作</title>
