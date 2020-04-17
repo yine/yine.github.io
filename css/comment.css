@@ -1,3 +1,6 @@
+.comments .disqus_thread {
+  margin: 1em 2em;
+}
 .comments .commentjs {
   margin: 1em 2em;
 }
@@ -39,7 +42,4 @@
   padding: 0.3em 1em;
   background: #9f1313;
   border: 0.1em solid #f5c6cb;
-}
-.comments .vcomments {
-  margin: 1em 2em;
 }
