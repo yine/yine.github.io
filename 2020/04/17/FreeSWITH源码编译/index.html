@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="0度工作室" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>FreeSWITH源码编译 | 0度工作室 - 匠人，如果觉得自己的作品“太棒了”的时候，就已经在走下坡路了。</title>
+  <meta name="generator" content="Hexo 4.2.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">0度工作室</a></h1>
+        <h2 class="subtitle">匠人，如果觉得自己的作品“太棒了”的时候，就已经在走下坡路了。</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/FreeSWITH%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="yine">
+       <meta itemprop="description" content="不是在新知识的探索中，就是已经在新领域探索的路上了...">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="0度工作室">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">FreeSWITH源码编译</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-04-17T15:41:01+08:00">2020-04-17 15:41:01</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BA%A4%E6%8D%A2/" itemprop="url" rel="index"><span itemprop="name">开源软交换</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="源代码导读及编译指南"><a href="#源代码导读及编译指南" class="headerlink" title="源代码导读及编译指南"></a>源代码导读及编译指南</h1><p>好多朋友在讨论如何阅读源代码时，感觉最大的困扰并不是看不懂代码，而是不知道从哪里下手，就好像是老虎吃天——无从下口。是的，FreeSWITCH的源代码太长了，确实好像从哪里看好像都找不到源头。不过，也不要因此而望而却步。在看比较大型的项目时，尤其是对着不熟悉的功能和代码，总要经过这么一个过程。尤其是，有些朋友，在对FreeSWITCH本身还不熟悉的时候，就试图通过阅读源代码来了解系统的功能。个人认为那是本末倒置的方法，不可取。笔者一直坚持，要想阅读FreeSWITCH的源代码，先要阅读官方文档、如果感觉英文太难读，国内也有不少这方面的书籍，如：老杜的《FreeSWITCH权威指南》,老李也写过不少这方面的文章和电子书，自己多做实验，掌握了FreeSWITCH的基本功能，再来阅读源代码会容易入手一些。</p>
+<p>当然，阅读源代码不仅仅是为了满足我们的好奇心——哪些功能是怎么实现的、系统还有何种没有公开（写到文档里）的功能等。更重要的是，如果我们熟悉了源代码，我们就可以修改它——不管是修复BUG、增加功能并为开源项目做贡献，还是修改源代码以适合你自己的需要，这些都能给你带来很好的成就感。</p>
+<p>接下来，我们从准备源代码环境开始，由浅入深地进一步一步进入FreeSWITCH内部的神秘世界。</p>
+<h2 id="准备FreeSWITH源代码环境"><a href="#准备FreeSWITH源代码环境" class="headerlink" title="准备FreeSWITH源代码环境"></a>准备FreeSWITH源代码环境</h2><p>首先，Clone FreeSWITCH源代码：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://freeswitch.org/stash/scm/fs/freeswitch.git<br></code></pre></td></tr></table></figure>
+
+<p>要查看源代码，最好选择一个具有语法高亮功能的阅读器或编辑器。作者在一直使用的是比较厚重的Visual Studio不过它只能运行在Win下，也有其它跨平台的工具比如SublimeText，只不过它只有语法高亮，函数之前的依赖及跳转基本没有，当然也可以使用一些经典工具，如在UNIX类系统上使用vi/vim或Emacs。</p>
+<h2 id="FreeSWITCH源代码目录结构"><a href="#FreeSWITCH源代码目录结构" class="headerlink" title="FreeSWITCH源代码目录结构"></a>FreeSWITCH源代码目录结构</h2><p>FreeSWITCH的源代码目录中，<code>src</code>目录中包含了绝大部分的源代码；<code>libs</code>目录下是一些第三方的库和模块，如<code>libs/sofia-sip</code>就是Nokia的SIP库。</p>
+<p>在<code>src</code>目录中，<code>include</code>目录存放了系统大部分的头文件；不同模块的代码则分门别类的放到<code>mod</code>目录中不同的子目录中。系统的核心代码则直接在<code>src</code>目录中。</p>
+<p>FreeSWITCH模块的源代码（<code>mod</code>目录）结构如下表所示：</p>
+<p>目录             说明</p>
+<hr>
+<p><code>asr_tts</code>          语音识别及合成相关模块<br><code>dialplans</code>        Dialplan模块<br><code>endpoints</code>        Endpoint模块，如<code>mod_sofia</code><br><code>formats</code>          文件格式模块，如<code>mod_sndfile</code><br><code>loggers</code>          日志模块<br><code>sdk</code>              一些例子和宏<br><code>xml_int</code>          XML相关的模块<br><code>applications</code>     提供各种应用功能的模块，如<code>mod_dptools</code>和<code>mod_commands</code><br><code>directories</code>      LDAP<br><code>event_handlers</code>   事件处理模块<br><code>languages</code>        嵌入式语言模块<br><code>say</code>              不同语种的语言模块<br><code>timers</code>           时钟和定时器模块</p>
+<p>上面不同的分类也与FreeSWITCH内部模块的抽象大致对应，但也有例外的情况，典型地，一些模块可能有多个接口（Interface）实现，这样的模块会根据其主要功能放到对应的目录中，有时就直接放到<code>applications</code>目录中，相当于该目录中有一些多功能的模块。但随着时间的推移，某些单功能的模块也可能会被增加一些新的功能和接口（Interface），变成多功能模块。</p>
+<h2 id="FreeSWITCH源代码的编译"><a href="#FreeSWITCH源代码的编译" class="headerlink" title="FreeSWITCH源代码的编译"></a>FreeSWITCH源代码的编译</h2><p>关于FreeSWITCH的编译，我们主要以在Linux系统上的编译为例。Windows平台上一般很少用来做服务部署和执行，暂时略过。</p>
+<h3 id="首次编译"><a href="#首次编译" class="headerlink" title="首次编译"></a>首次编译</h3><p>在编译源代码前，请确保按第3章中所讲的安装相关的依赖库及开发包。FreeSWITCH在开发中使用经典的<code>gcc</code>、<code>Makefile</code>及<code>automake</code>、<code>autoconf</code>等GNU工具链，因而在各种平台上都很容易地进行编译。</p>
+<p>为了方便不了解这些GNU工具的读者，我们在此也顺便简单讲一下。</p>
+<p>首先，大家知道，FreeSWITCH主要是用C和C++写的。编译C语言的程序一般需要<code>gcc</code>，如，如下命令会编译<code>test.c</code>并生成一个可以执行的二进制程序：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc test.c -o <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
+
+<p>当源代码数量过多时，一行一行的执行<code>gcc</code>就比较累了。因此，可以编写简单的Shell脚本或Makefile实现。Makefile是<code>make</code>工具使用的文件，它除了定义源文件到目标文件的编译方法外，还能定义这些文件的依赖关系。通过检查这些依赖关系，如果在下次编译时源文件没有修改过，则可以不用重复编译，因而可以大大加快编译速度。</p>
+<p>不同平台上的工具链是不一样的，在Linux等开源平台上一般使用<code>gcc</code>，而在其他商业的UNIX系统上往往都有各厂商自己的编译工具链，因而一种称为<code>automake</code>的工具出现了。通过编写<code>configure</code>脚本，定义一些宏，可以在编译前自动检测当前的平台环境和工具链，以生成适当的Makefile。</p>
+<p>当工程更大的时候，写<code>configure</code>脚本也是很累人的活，因而又有人发明了<code>autoconf</code>，通过定义更简单的宏，可以自动生成<code>configure</code>脚本。</p>
+<p>总之，大家可以结合FreeSWITCH的编译过程深入理解一下。</p>
+<p>首先，如果你是从Git仓库中Clone的源代码，需要先执行一下<code>bootstrap.sh</code>。它会初始化一些文件。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./bootstrap.sh<br></code></pre></td></tr></table></figure>
+
+<p>如果是直接下载的源代码Tar包，则不需要这一步，因为源代码在<code>tar</code>之前就已经执行过该步骤了。</p>
+<p>接下来，执行<code>configure</code>，它会生成<code>Makefile</code>：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure<br></code></pre></td></tr></table></figure>
+
+<p><code>configure</code>有很多参数，其中比较常用的是<code>prefix</code>参数，用于将FreeSWITCH安装到指定的目录下（FreeSWITCH默认的安装目录是<code>/usr/local/freeswitch</code>），如：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure --prefix=/usr/<span class="hljs-built_in">local</span>/freeswitch2<br>./configure --prefix=/opt/freeswitch<br></code></pre></td></tr></table></figure>
+
+<p><code>configure</code>执行完毕后，将产生<code>Makefile</code>，以及一个<code>modules.conf</code>文件。<code>modules.conf</code>用于控制在编译阶段要自动编译哪些模块。如果你需要这些模块，则可以编辑该文件，并去掉前面的”<code>#</code>“号注释，如：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ head modules.conf<br><span class="hljs-comment">#applications/mod_abstraction</span><br><span class="hljs-comment">#applications/mod_avmd</span><br><span class="hljs-comment">#applications/mod_blacklist</span><br><span class="hljs-comment">#applications/mod_callcenter</span><br><span class="hljs-comment">#applications/mod_cidlookup</span><br>applications/mod_cluechoo<br>applications/mod_commands<br>applications/mod_conference<br><span class="hljs-comment">#applications/mod_curl</span><br>applications/mod_db<br></code></pre></td></tr></table></figure>
+
+<p>如果不知道哪些模块是干什么的，可以暂且不管这个文件。到以后也可以再单独编译某些模块。</p>
+<p>接下来，执行<code>make</code>，它将根据<code>Makefile</code>进行编译</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make<br></code></pre></td></tr></table></figure>
+
+<p>编译成功后，执行如下命令将程序安装到相应的位置。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make install<br></code></pre></td></tr></table></figure>
+
+<p>注意，需要确认要安装的目标位置有写入的权限，如果这些命令都是以<code>root</code>执行的，那你不会遇到权限的问题，但如果你是以普通用户执行的，就可能遇到权限的问题。所以，如果有权限的问题，可以尝试用<code>root</code>进行安装：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo make install<br></code></pre></td></tr></table></figure>
+
+<p>或者，也可以通过如下方案以普通用户的身份安装，如，以<code>freeswitch</code>用户安装，假设你现在登录的用户就是<code>freeswitc</code>h：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo mkdir /usr/<span class="hljs-built_in">local</span>/freeswitch               <span class="hljs-comment"># 用root身份创建目录</span><br>sudo chown freeswitch /usr/<span class="hljs-built_in">local</span>/freeswitch    <span class="hljs-comment"># 把目录的属主改为freeswitch</span><br>make install                                   <span class="hljs-comment"># 用freeswitch普通用户身份安装即可</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="增量编译"><a href="#增量编译" class="headerlink" title="增量编译"></a>增量编译</h3><p>有时候，我们修改了源文件，需要再次编译。在没有修改<code>autoconf</code>、<code>automake</code>相关的编译规则的话，直接执行<code>make</code>就行了：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make<br></code></pre></td></tr></table></figure>
+
+<p>或者，也可以直接执行</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make install<br></code></pre></td></tr></table></figure>
+
+<p><code>make</code>会检查全部的规则，并决定哪些需要重新编译，这还是比较耗时的。如果你知识你仅仅修改了哪些模块的话，可以直接编译该模块，如：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">make mod_sofia<br>make mod_sofia-install<br></code></pre></td></tr></table></figure>
+
+<p>使用这种方法也可以编译默认没有编译过的模块，如<code>mod_shout</code>模块提供mp3录、放音的支持，它默认是不被编译的，可以用以下命令安装：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make mod_shout-install<br></code></pre></td></tr></table></figure>
+
+<p>当然，在大多数情况下，你也可以直接进入相关的模块目录下，执行<code>make</code>。如：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> src/mod/endpoints/mod_sofia<br>make install<br></code></pre></td></tr></table></figure>
+
+<p>如果你改了核心的代码，则可以执行</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make core-install<br></code></pre></td></tr></table></figure>
+
+<h3 id="常见问题及最佳实践"><a href="#常见问题及最佳实践" class="headerlink" title="常见问题及最佳实践"></a>常见问题及最佳实践</h3><p>如果在编译过程中出现某个或某些模块编译不通过的情况，可以先在<code>modules.conf</code>中将该模块注释掉，等全部的编译通过后，再单独检查该模块有什么问题。</p>
+<p>如果跟作者一样，你经常在不同的分支中切来切去，则如果分支差异比较大时编译系统中的目标文件可能会乱掉。这是可能是编译规则设置的问题，但FreeSWITCH项目太大了，因而，作者经常在不同的目录中编译，如，下列命令编译最新的master版本到默认位置：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://freeswitch.org/stash/scm/fs/freeswitch.git freeswitch-master<br><span class="hljs-built_in">cd</span> freeswitch-master<br>./bootstrap.sh &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make install<br></code></pre></td></tr></table></figure>
+
+<p>编译1.10.1版本并安装到<code>/usr/local/freeswitch-1.10.1</code>：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://freeswitch.org/stash/scm/fs/freeswitch.git freeswitch-1.10.1<br><span class="hljs-built_in">cd</span> freeswitch-1.10.1<br>git checkout v1.10.1.stable<br>./bootstrap.sh &amp;&amp; ./configure --prefix=/usr/<span class="hljs-built_in">local</span>/freeswitch-1.10.1<br>make &amp;&amp; make install<br></code></pre></td></tr></table></figure>
+
+<p>通过这种方式，以后在维护多个分支时就不会混乱了，而且，如果有必要的话，也可以同时在一台主机上同时启动不同版本的FreeSWITCH实例。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>我们主要讲了如何获取及编译FreeSWITCH代码，这样大家就可以在阅读源代码的同时尝试改一些地方（至少，可以在某些关于的地方加一些日志输出的语句），并编译执行看一下效果。阅读永远是枯燥乏味的，只有配合一定的实践，让代码“动”起来，才会有意思。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BA%A4%E6%8D%A2/" rel="tag"><i class="fas fa-tags"></i>开源软交换</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付"/>
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝"/>
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/04/14/github%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%86%99%E4%BD%9C/" rel="next" title="github上的第一次写作"><i class="fas fa-angle-left"></i><span class="nav-title">github上的第一次写作</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2020/04/21/hello-world/" rel="prev" title="Hello World"><span class="nav-title">Hello World</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  
+  <div class="commentjs" id="comment-thread"></div>
+  <link rel="stylesheet" href="/css/commentjs.css">
+  <script defer type="text/javascript" src="/js/marked.min.js"></script>
+  <script defer type="text/javascript" src="/js/timeago.min.js"></script>
+  <script defer type="text/javascript" src="/js/highlight.min.js"></script>
+  <script defer type="text/javascript" src="/js/commentjs.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    getComments({
+      "type": "github",
+      "user": "yine",
+      "repo": "yine.github.io",
+      "client_id": "7d819389de53ce58036f",
+      "client_secret": "0e8b2e216fa2f8a0f7e436690c4363b80c61ab25",
+      "no_comment": "这个页面还没有评论，现在就去评论吧！",
+      "go_to_comment": "去评论",
+      "issue_title": "FreeSWITH源码编译",
+      "btn_class": "button",
+      "comments_target": "#comment-thread"
+    });
+    marked.setOptions({
+      "highlight": function (code, lang) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+    function mark() {
+      var markdowns = document.getElementsByClassName("markdown");
+      for (var i = 0; i < markdowns.length; ++i){
+        if (markdowns[i].innerHTML) {
+          markdowns[i].innerHTML = marked(markdowns[i].innerHTML);
+        }
+      }
+    }
+    window.addEventListener("DOMContentLoaded", mark, false);
+    window.addEventListener("load", mark, false);
+  });
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="yine">
+  
+  <h1 class="author-name">yine</h1>
+  <h2 class="author-description">不是在新知识的探索中，就是已经在新领域探索的路上了...</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">3</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">2</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">2</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#源代码导读及编译指南"><span class="toc-text">源代码导读及编译指南</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#准备FreeSWITH源代码环境"><span class="toc-text">准备FreeSWITH源代码环境</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#FreeSWITCH源代码目录结构"><span class="toc-text">FreeSWITCH源代码目录结构</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#FreeSWITCH源代码的编译"><span class="toc-text">FreeSWITCH源代码的编译</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#首次编译"><span class="toc-text">首次编译</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#增量编译"><span class="toc-text">增量编译</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常见问题及最佳实践"><span class="toc-text">常见问题及最佳实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:youremail@youremailhost" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/yine" target="_blank">GitHub-YINE</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://blog.csdn.net/y_xianjun" target="_blank">CSDN-YINE</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://b2b.163.com/product/qiyu" target="_blank">Netease-WE</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">yine</span><span class="year"><i class="far fa-copyright"></i>2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://yine.github.io/" target="_blank">0度工作室</a> 倾情打造
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
