@@ -238,18 +238,18 @@
 <li>SWITCH_ENDPOINT_INTERFACE /* endpoint modules, 主要实现各种通信协议，如SIP、H.232、Skype、XMPP等等*/</li>
 <li>SWITCH_TIMER_INTERFACE /* 时钟接口，包括软时钟和硬时钟，FreeSWITCH自带一个soft timer */</li>
 <li>SWITCH_DIALPLAN_INTERFACE /* dialplan modules, 用来控制呼叫流程的，比如在XML中编写流程的控制，或者自己定义一种文本语法，然后编写一个dialplan module用来解析这种流程控制的语法 */</li>
-<li>SWITCH_CODEC_INTERFACE /* 编码模块，包括 G.722、G.729等，现在貌似还没有视频的编解码，有兴趣的朋友可以自己开发一个 */</li>
-<li>SWITCH_APPLICATION_INTERFACE /* 应用模块，这种模块一般是用户定义的功能，比如说使用自己的短信猫发短信，那么就可以写一个APP，在dialplan中使用 */</li>
+<li>SWITCH_CODEC_INTERFACE /* 编码模块，包括 G.722、G.729等，也可以实现自定义的编码格式 */</li>
+<li>SWITCH_APPLICATION_INTERFACE /* 应用模块，这种模块一般是用户定义的功能，比如说ASR的接入，那么就可以写一个APP，在dialplan中使用 */</li>
 <li>SWITCH_API_INTERFACE /* API一般是在FreeSWITCH的shell中使用的，但是也可以通过特定方式在dialplan中使用，类似于APP modules */</li>
-<li>SWITCH_FILE_INTERFACE /* 文件操作模块，暂时还没分析这个接口 */</li>
+<li>SWITCH_FILE_INTERFACE /* 文件操作模块，文件格式或文件操作相关的api, 通过指令操作媒体服务本机的文件 */</li>
 <li>SWITCH_SPEECH_INTERFACE /* TTS 模块，调用TTS引擎的API实现语音合成的功能，用户可以直接在dialplan中使用，比如将微软的SAPI实现TTS功能 */</li>
 <li>SWITCH_DIRECTORY_INTERFACE /* 模块操作模块，暂时还没分析这个接口 */</li>
-<li>SWITCH_CHAT_INTERFACE /* IM模块，暂时还没分析这个接口 */</li>
+<li>SWITCH_CHAT_INTERFACE /* IM模块，可以用来做一对一或一对多的聊天或对话窗口 */</li>
 <li>SWITCH_SAY_INTERFACE /* 提示音多语言支持模块，FreeSWTICH有一些内置的提示音，一个say module实现一种语音的提示音播放，比如说mod_say_zh就是使用中文播放 “元”、”角”、“分”，而mod_say_en就是英文播放”dollar“、”cent“等 */</li>
 <li>SWITCH_ASR_INTERFACE /* ASR模块，调用语音识别引擎API实现语音识别 */</li>
 <li>SWITCH_MANAGEMENT_INTERFACE /* 暂时还没有分析这个接口 */</li>
 </ul>
-<p>　　上面这些接口，有的比较简单，比如TTS的，SAY模块（大部分常用的都内置了，无需再开发），Dialplan模块，也有部分比较复杂，比如Endpoint和ASR这两个就教负责一些。还有一些我还没有分析到，所以不太清楚其负责程度，等写到对应的模块再说吧。</p>
+<p>　　上面这些接口，有的比较简单，比如TTS的，SAY模块（大部分常用的都内置了，无需再开发），Dialplan模块，也有部分比较复杂，比如Endpoint和ASR这两个就教复杂一些。还有一些我还没有分析到，所以不太清楚其复杂程度，等写到对应的模块再说吧。</p>
 <p>　　其实说白了，C/C++的plugin/module framework无非就是函数指针，那么FreeSWITCH的module接口也是大量的使用了函数指针，以达到用户实现功能模块，FreeSWITCH Core负责调度的原则。</p>
 <p>　　基本上会按照上面标志的顺序对FreeSWITCH的模块开发做一些简单的分析，然后再说一下开发中应该注意的地方（如果我做过对应模块），最后可能写一些简单的示例。</p>
 
