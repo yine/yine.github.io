@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="0度工作室" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>FreeSWITCH mod_verto 信令样例 | 0度工作室 - 匠人，如果觉得自己的作品“太棒了”的时候，就已经在走下坡路了。</title>
+  <meta name="generator" content="Hexo 4.2.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">0度工作室</a></h1>
+        <h2 class="subtitle">匠人，如果觉得自己的作品“太棒了”的时候，就已经在走下坡路了。</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/30/FreeSWITCH-mod-verto-%E4%BF%A1%E4%BB%A4%E6%A0%B7%E4%BE%8B/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="yine">
+       <meta itemprop="description" content="不是在新知识的探索中，就是已经在新领域探索的路上了...">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="0度工作室">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">FreeSWITCH mod_verto 信令样例</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-04-30T17:16:42+08:00">2020-04-30 17:16:42</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BA%A4%E6%8D%A2/" itemprop="url" rel="index"><span itemprop="name">开源软交换</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h3 id="FreeSWITCH-mod-verto-采用-json-rpc-信令格式"><a href="#FreeSWITCH-mod-verto-采用-json-rpc-信令格式" class="headerlink" title="FreeSWITCH mod_verto 采用 json-rpc 信令格式"></a>FreeSWITCH mod_verto 采用 json-rpc 信令格式</h3><h4 id="登录信令"><a href="#登录信令" class="headerlink" title="登录信令"></a>登录信令</h4><figure class="hljs highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,<br>    <span class="hljs-attr">"method"</span>: <span class="hljs-string">"login"</span>,<br>    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">"params"</span>: &#123;<br>        <span class="hljs-attr">"login"</span>: <span class="hljs-string">"1000@MY-IP-ADDRESS"</span>,<br>        <span class="hljs-attr">"loginParams"</span>: &#123;&#125;,<br>        <span class="hljs-attr">"userVariables"</span>: &#123;&#125;,<br>        <span class="hljs-attr">"passwd"</span>: <span class="hljs-string">"1234"</span>,<br>        <span class="hljs-attr">"sessid"</span>: <span class="hljs-string">"53FB0781-B586-4CDA-98C6-558680663B46"</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="登录信令响应"><a href="#登录信令响应" class="headerlink" title="登录信令响应"></a>登录信令响应</h4><figure class="hljs highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,<br>    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">"result"</span>: &#123;<br>        <span class="hljs-attr">"message"</span>: <span class="hljs-string">"logged in"</span>,<br>        <span class="hljs-attr">"sessid"</span>: <span class="hljs-string">"53FB0781-B586-4CDA-98C6-558680663B46"</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="发起呼叫信令"><a href="#发起呼叫信令" class="headerlink" title="发起呼叫信令"></a>发起呼叫信令</h4><figure class="hljs highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,<br>    <span class="hljs-attr">"method"</span>: <span class="hljs-string">"verto.invite"</span>,<br>    <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,<br>    <span class="hljs-attr">"params"</span>: &#123;<br>        <span class="hljs-attr">"dialogParams"</span>: &#123;<br>            <span class="hljs-attr">"remote_caller_id_number"</span>: <span class="hljs-string">"1008"</span>,<br>            <span class="hljs-attr">"useVideo"</span>: <span class="hljs-literal">false</span>,<br>            <span class="hljs-attr">"useMic"</span>: <span class="hljs-string">"any"</span>,<br>            <span class="hljs-attr">"useStereo"</span>: <span class="hljs-literal">false</span>,<br>            <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"webcam"</span>,<br>            <span class="hljs-attr">"login"</span>: <span class="hljs-string">"1000@159.203.164.7"</span>,<br>            <span class="hljs-attr">"useCamera"</span>: <span class="hljs-string">"any"</span>,<br>            <span class="hljs-attr">"videoParams"</span>: &#123;<br>                <span class="hljs-attr">"minFrameRate"</span>: <span class="hljs-number">30</span>,<br>                <span class="hljs-attr">"minWidth"</span>: <span class="hljs-string">"1280"</span>,<br>                <span class="hljs-attr">"minHeight"</span>: <span class="hljs-string">"720"</span><br>            &#125;,<br>            <span class="hljs-attr">"destination_number"</span>: <span class="hljs-string">"1008"</span>,<br>            <span class="hljs-attr">"screenShare"</span>: <span class="hljs-literal">false</span>,<br>            <span class="hljs-attr">"caller_id_name"</span>: <span class="hljs-string">"FreeSWITCH User"</span>,<br>            <span class="hljs-attr">"caller_id_number"</span>: <span class="hljs-string">"1000"</span>,<br>            <span class="hljs-attr">"callID"</span>: <span class="hljs-string">"0CD433FC-A909-4DF2-BC46-0A4A94E9B800"</span>,<br>            <span class="hljs-attr">"remote_caller_id_name"</span>: <span class="hljs-string">"Outbound Call"</span>,<br>            <span class="hljs-attr">"useSpeak"</span>: <span class="hljs-string">"any"</span><br>        &#125;,<br>        <span class="hljs-attr">"sessid"</span>: <span class="hljs-string">"53FB0781-B586-4CDA-98C6-558680663B46"</span>,<br>        <span class="hljs-attr">"sdp"</span>: <span class="hljs-string">"v=0\r\n</span><br><span class="hljs-string">                o=- 8564086442942257834 2 IN IP4 127.0.0.1\r\n</span><br><span class="hljs-string">                s=-\r\n</span><br><span class="hljs-string">                t=0 0\r\n</span><br><span class="hljs-string">                a=group:BUNDLE audio video\r\n</span><br><span class="hljs-string">                a=msid-semantic: WMS\r\n</span><br><span class="hljs-string">                m=audio 58157 UDP\/TLS\/RTP\/SAVPF 111 103 104 9 102 0 8 106 105 13 127 126\r\n</span><br><span class="hljs-string">                c=IN IP4 82.166.93.197\r\n</span><br><span class="hljs-string">                a=rtcp:52576 IN IP4 82.166.93.197\r\n</span><br><span class="hljs-string">                a=candidate:3168280865 1 udp 2122260223 11.0.0.244 58157 typ host generation 0\r\n</span><br><span class="hljs-string">                a=candidate:1260196625 1 udp 2122194687 10.134.172.254 58951 typ host generation 0\r\n</span><br><span class="hljs-string">                a=candidate:3168280865 2 udp 2122260222 11.0.0.244 52576 typ host generation 0\r\n</span><br><span class="hljs-string">                a=candidate:1260196625 2 udp 2122194686 10.134.172.254 58945 typ host generation 0\r\n</span><br><span class="hljs-string">                a=candidate:4066106833 1 tcp 1518280447 11.0.0.244 60562 typ host tcptype passive generation 0\r\n</span><br><span class="hljs-string">                a=candidate:94302177 1 tcp 1518214911 10.134.172.254 60563 typ host tcptype passive generation 0\r\n</span><br><span class="hljs-string">                a=candidate:4066106833 2 tcp 1518280446 11.0.0.244 60564 typ host tcptype passive generation 0\r\n</span><br><span class="hljs-string">                a=candidate:94302177 2 tcp 1518214910 10.134.172.254 60565 typ host tcptype passive generation 0\r\n</span><br><span class="hljs-string">                a=candidate:1610196941 1 udp 1686052607 82.166.93.197 58157 typ srflx raddr 11.0.0.244 rport 58157 generation 0\r\n</span><br><span class="hljs-string">                a=candidate:1610196941 2 udp 1686052606 82.166.93.197 52576 typ srflx raddr 11.0.0.244 rport 52576 generation 0\r\n</span><br><span class="hljs-string">                a=candidate:2274372738 2 udp 1685987070 176.13.15.205 5834 typ srflx raddr 10.134.172.254 rport 58945 generation 0\r\n</span><br><span class="hljs-string">                a=candidate:2274372738 1 udp 1685987071 176.13.15.205 5840 typ srflx raddr 10.134.172.254 rport 58951 generation 0\r\n</span><br><span class="hljs-string">                a=ice-ufrag:g8lHDtPwH7m5xRex\r\n</span><br><span class="hljs-string">                a=ice-pwd:Q6jcBJNTWAyu0JTuIaQAeNI3\r\n</span><br><span class="hljs-string">                a=fingerprint:sha-256 0F:A1:68:51:87:3E:B4:C1:0D:33:97:40:78:22:2A:8C:D2:B6:46:23:F5:99:C9:88:5D:34:DB:E2:C5:94:B3:DD\r\n</span><br><span class="hljs-string">                a=setup:actpass\r\n</span><br><span class="hljs-string">                a=mid:audio\r\n</span><br><span class="hljs-string">                a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\n</span><br><span class="hljs-string">                a=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\n</span><br><span class="hljs-string">                a=recvonly\r\n</span><br><span class="hljs-string">                a=rtcp-mux\r\n</span><br><span class="hljs-string">                a=rtpmap:111 opus\/48000\/2\r\n</span><br><span class="hljs-string">                a=fmtp:111 minptime=10; useinbandfec=1\r\n</span><br><span class="hljs-string">                a=rtpmap:103 ISAC\/16000\r\n</span><br><span class="hljs-string">                a=rtpmap:104 ISAC\/32000\r\n</span><br><span class="hljs-string">                a=rtpmap:9 G722\/8000\r\n</span><br><span class="hljs-string">                a=rtpmap:102 ILBC\/8000\r\n</span><br><span class="hljs-string">                a=rtpmap:0 PCMU\/8000\r\n</span><br><span class="hljs-string">                a=rtpmap:8 PCMA\/8000\r\n</span><br><span class="hljs-string">                a=rtpmap:106 CN\/32000\r\n</span><br><span class="hljs-string">                a=rtpmap:105 CN\/16000\r\n</span><br><span class="hljs-string">                a=rtpmap:13 CN\/8000\r\n</span><br><span class="hljs-string">                a=rtpmap:127 red\/8000\r\n</span><br><span class="hljs-string">                a=rtpmap:126 telephone-event\/8000\r\n</span><br><span class="hljs-string">                a=maxptime:60\r\n</span><br><span class="hljs-string">                m=video 61966 UDP\/TLS\/RTP\/SAVPF 100 101 116 117 96\r\n</span><br><span class="hljs-string">                c=IN IP4 82.166.93.197\r\n</span><br><span class="hljs-string">                a=rtcp:63816 IN IP4 82.166.93.197\r\n</span><br><span class="hljs-string">                a=candidate:3168280865 1 udp 2122260223 11.0.0.244 61966 typ host generation 0\r\n</span><br><span class="hljs-string">                a=candidate:1260196625 1 udp 2122194687 10.134.172.254 50435 typ host generation 0\r\n</span><br><span class="hljs-string">                a=candidate:3168280865 2 udp 2122260222 11.0.0.244 63816 typ host generation 0\r\n</span><br><span class="hljs-string">                a=candidate:1260196625 2 udp 2122194686 10.134.172.254 63396 typ host generation 0\r\n</span><br><span class="hljs-string">                a=candidate:4066106833 1 tcp 1518280447 11.0.0.244 60566 typ host tcptype passive generation 0\r\n</span><br><span class="hljs-string">                a=candidate:94302177 1 tcp 1518214911 10.134.172.254 60567 typ host tcptype passive generation 0\r\n</span><br><span class="hljs-string">                a=candidate:4066106833 2 tcp 1518280446 11.0.0.244 60568 typ host tcptype passive generation 0\r\n</span><br><span class="hljs-string">                a=candidate:94302177 2 tcp 1518214910 10.134.172.254 60569 typ host tcptype passive generation 0\r\n</span><br><span class="hljs-string">                a=candidate:1610196941 1 udp 1686052607 82.166.93.197 61966 typ srflx raddr 11.0.0.244 rport 61966 generation 0\r\n</span><br><span class="hljs-string">                a=candidate:1610196941 2 udp 1686052606 82.166.93.197 63816 typ srflx raddr 11.0.0.244 rport 63816 generation 0\r\n</span><br><span class="hljs-string">                a=candidate:2274372738 1 udp 1685987071 176.13.15.205 5879 typ srflx raddr 10.134.172.254 rport 50435 generation 0\r\n</span><br><span class="hljs-string">                a=candidate:2274372738 2 udp 1685987070 176.13.15.205 5860 typ srflx raddr 10.134.172.254 rport 63396 generation 0\r\n</span><br><span class="hljs-string">                a=ice-ufrag:g8lHDtPwH7m5xRex\r\n</span><br><span class="hljs-string">                a=ice-pwd:Q6jcBJNTWAyu0JTuIaQAeNI3\r\n</span><br><span class="hljs-string">                a=fingerprint:sha-256 0F:A1:68:51:87:3E:B4:C1:0D:33:97:40:78:22:2A:8C:D2:B6:46:23:F5:99:C9:88:5D:34:DB:E2:C5:94:B3:DD\r\n</span><br><span class="hljs-string">                a=setup:actpass\r\n</span><br><span class="hljs-string">                a=mid:video\r\n</span><br><span class="hljs-string">                a=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\n</span><br><span class="hljs-string">                a=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\n</span><br><span class="hljs-string">                a=extmap:4 urn:3gpp:video-orientation\r\n</span><br><span class="hljs-string">                a=recvonly\r\n</span><br><span class="hljs-string">                a=rtcp-mux\r\n</span><br><span class="hljs-string">                a=rtpmap:100 VP8\/90000\r\n</span><br><span class="hljs-string">                a=rtcp-fb:100 ccm fir\r\n</span><br><span class="hljs-string">                a=rtcp-fb:100 nack\r\n</span><br><span class="hljs-string">                a=rtcp-fb:100 nack pli\r\n</span><br><span class="hljs-string">                a=rtcp-fb:100 goog-remb\r\n</span><br><span class="hljs-string">                a=rtcp-fb:100 transport-cc\r\n</span><br><span class="hljs-string">                a=rtpmap:101 VP9\/90000\r\n</span><br><span class="hljs-string">                a=rtcp-fb:101 ccm fir\r\n</span><br><span class="hljs-string">                a=rtcp-fb:101 nack\r\n</span><br><span class="hljs-string">                a=rtcp-fb:101 nack pli\r\n</span><br><span class="hljs-string">                a=rtcp-fb:101 goog-remb\r\n</span><br><span class="hljs-string">                a=rtcp-fb:101 transport-cc\r\n</span><br><span class="hljs-string">                a=rtpmap:116 red\/90000\r\n</span><br><span class="hljs-string">                a=rtpmap:117 ulpfec\/90000\r\n</span><br><span class="hljs-string">                a=rtpmap:96 rtx\/90000\r\n</span><br><span class="hljs-string">                a=fmtp:96 apt=100\r\n</span><br><span class="hljs-string">                "</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="发起呼叫信令响应"><a href="#发起呼叫信令响应" class="headerlink" title="发起呼叫信令响应"></a>发起呼叫信令响应</h4><figure class="hljs highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,<br>    <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,<br>    <span class="hljs-attr">"result"</span>: &#123;<br>        <span class="hljs-attr">"message"</span>: <span class="hljs-string">"CALL CREATED"</span>,<br>        <span class="hljs-attr">"callID"</span>: <span class="hljs-string">"0CD433FC-A909-4DF2-BC46-0A4A94E9B800"</span>,<br>        <span class="hljs-attr">"sessid"</span>: <span class="hljs-string">"53FB0781-B586-4CDA-98C6-558680663B46"</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="会议被邀请信令"><a href="#会议被邀请信令" class="headerlink" title="会议被邀请信令"></a>会议被邀请信令</h4><figure class="hljs highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,<br>    <span class="hljs-attr">"method"</span>: <span class="hljs-string">"verto.media"</span>,<br>    <span class="hljs-attr">"id"</span>: <span class="hljs-number">637</span>,<br>    <span class="hljs-attr">"params"</span>: &#123;<br>        <span class="hljs-attr">"sdp"</span>: <span class="hljs-string">"v=0\n</span><br><span class="hljs-string">                o=FreeSWITCH 1457232832 1457232833 IN IP4 159.203.164.7\n</span><br><span class="hljs-string">                s=FreeSWITCH\n</span><br><span class="hljs-string">                c=IN IP4 159.203.164.7\n</span><br><span class="hljs-string">                t=0 0\n</span><br><span class="hljs-string">                a=msid-semantic: WMS TcxpBqoS0j04fOIzkIArKYrlV7LCs9Ub\n</span><br><span class="hljs-string">                m=audio 30784 UDP/TLS/RTP/SAVPF 111 126\n</span><br><span class="hljs-string">                a=rtpmap:111 opus/48000/2\n</span><br><span class="hljs-string">                a=fmtp:111 useinbandfec=1; minptime=10\n</span><br><span class="hljs-string">                a=rtpmap:126 telephone-event/8000\n</span><br><span class="hljs-string">                a=silenceSupp:off - - - -\n</span><br><span class="hljs-string">                a=ptime:20\n</span><br><span class="hljs-string">                a=sendonly\n</span><br><span class="hljs-string">                a=fingerprint:sha-256 FE:CD:54:3E:2A:D7:DB:00:57:B7:D4:55:A8:EB:79:08:16:BB:B0:EA:43:44:42:9A:90:01:49:37:7B:31:48:F8\n</span><br><span class="hljs-string">                a=setup:active\n</span><br><span class="hljs-string">                a=rtcp-mux\n</span><br><span class="hljs-string">                a=rtcp:30784 IN IP4 159.203.164.7\n</span><br><span class="hljs-string">                a=ice-ufrag:qLh1zzclxONPNyQO\n</span><br><span class="hljs-string">                a=ice-pwd:G7g4Drkist37beYsP5jfvlqS\n</span><br><span class="hljs-string">                a=candidate:9922185636 1 udp 659136 159.203.164.7 30784 typ host generation 0\n</span><br><span class="hljs-string">                a=ssrc:1323504502 cname:bhqCyFkpPbjUPSk0\n</span><br><span class="hljs-string">                a=ssrc:1323504502 msid:TcxpBqoS0j04fOIzkIArKYrlV7LCs9Ub a0\n</span><br><span class="hljs-string">                a=ssrc:1323504502 mslabel:TcxpBqoS0j04fOIzkIArKYrlV7LCs9Ub\n</span><br><span class="hljs-string">                a=ssrc:1323504502 label:TcxpBqoS0j04fOIzkIArKYrlV7LCs9Uba0\n</span><br><span class="hljs-string">                m=video 31380 UDP/TLS/RTP/SAVPF 100\n</span><br><span class="hljs-string">                a=rtpmap:100 VP8/90000\n</span><br><span class="hljs-string">                a=sendonly\n</span><br><span class="hljs-string">                a=fingerprint:sha-256 FE:CD:54:3E:2A:D7:DB:00:57:B7:D4:55:A8:EB:79:08:16:BB:B0:EA:43:44:42:9A:90:01:49:37:7B:31:48:F8\n</span><br><span class="hljs-string">                a=setup:active\n</span><br><span class="hljs-string">                a=rtcp-mux\n</span><br><span class="hljs-string">                a=rtcp:31380 IN IP4 159.203.164.7\n</span><br><span class="hljs-string">                b=AS:1024\n</span><br><span class="hljs-string">                a=rtcp-fb:100 ccm fir\n</span><br><span class="hljs-string">                a=rtcp-fb:100 nack\n</span><br><span class="hljs-string">                a=rtcp-fb:100 nack pli\n</span><br><span class="hljs-string">                a=ssrc:594893571 cname:bhqCyFkpPbjUPSk0\n</span><br><span class="hljs-string">                a=ssrc:594893571 msid:TcxpBqoS0j04fOIzkIArKYrlV7LCs9Ub v0\n</span><br><span class="hljs-string">                a=ssrc:594893571 mslabel:TcxpBqoS0j04fOIzkIArKYrlV7LCs9Ub\n</span><br><span class="hljs-string">                a=ssrc:594893571 label:TcxpBqoS0j04fOIzkIArKYrlV7LCs9Ubv0\n</span><br><span class="hljs-string">                a=ice-ufrag:2KDK4wDMYuAuVdAZ\n</span><br><span class="hljs-string">                a=ice-pwd:YTpxObqpLuBEfig7TKHN6bqU\n</span><br><span class="hljs-string">                a=candidate:7508673635 1 udp 659136 159.203.164.7 31380 typ host generation 0\n</span><br><span class="hljs-string">                "</span>,<br>        <span class="hljs-attr">"callID"</span>: <span class="hljs-string">"0CD433FC-A909-4DF2-BC46-0A4A94E9B800"</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="会议被邀请信令响应"><a href="#会议被邀请信令响应" class="headerlink" title="会议被邀请信令响应"></a>会议被邀请信令响应</h4><figure class="hljs highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,<br>    <span class="hljs-attr">"method"</span>: <span class="hljs-string">"verto.answer"</span>,<br>    <span class="hljs-attr">"id"</span>: <span class="hljs-number">638</span>,<br>    <span class="hljs-attr">"params"</span>: &#123;<br>        <span class="hljs-attr">"callID"</span>: <span class="hljs-string">"0CD433FC-A909-4DF2-BC46-0A4A94E9B800"</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BA%A4%E6%8D%A2/" rel="tag"><i class="fas fa-tags"></i>开源软交换</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付"/>
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝"/>
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/04/29/FreeSWITCH%E6%A8%A1%E5%9D%97%E7%B1%BB%E5%9E%8B/" rel="next" title="FreeSWITCH模块类型"><i class="fas fa-angle-left"></i><span class="nav-title">FreeSWITCH模块类型</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  
+  <div class="commentjs" id="comment-thread"></div>
+  <link rel="stylesheet" href="/css/commentjs.css">
+  <script defer type="text/javascript" src="/js/marked.min.js"></script>
+  <script defer type="text/javascript" src="/js/timeago.min.js"></script>
+  <script defer type="text/javascript" src="/js/highlight.min.js"></script>
+  <script defer type="text/javascript" src="/js/commentjs.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    getComments({
+      "type": "github",
+      "user": "yine",
+      "repo": "yine.github.io",
+      "client_id": "7d819389de53ce58036f",
+      "client_secret": "0e8b2e216fa2f8a0f7e436690c4363b80c61ab25",
+      "no_comment": "这个页面还没有评论，现在就去评论吧！",
+      "go_to_comment": "去评论",
+      "issue_title": "FreeSWITCH mod_verto 信令样例",
+      "btn_class": "button",
+      "comments_target": "#comment-thread"
+    });
+    marked.setOptions({
+      "highlight": function (code, lang) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+    function mark() {
+      var markdowns = document.getElementsByClassName("markdown");
+      for (var i = 0; i < markdowns.length; ++i){
+        if (markdowns[i].innerHTML) {
+          markdowns[i].innerHTML = marked(markdowns[i].innerHTML);
+        }
+      }
+    }
+    window.addEventListener("DOMContentLoaded", mark, false);
+    window.addEventListener("load", mark, false);
+  });
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="yine">
+  
+  <h1 class="author-name">yine</h1>
+  <h2 class="author-description">不是在新知识的探索中，就是已经在新领域探索的路上了...</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">5</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">2</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">2</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#FreeSWITCH-mod-verto-采用-json-rpc-信令格式"><span class="toc-text">FreeSWITCH mod_verto 采用 json-rpc 信令格式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#登录信令"><span class="toc-text">登录信令</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#登录信令响应"><span class="toc-text">登录信令响应</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#发起呼叫信令"><span class="toc-text">发起呼叫信令</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#发起呼叫信令响应"><span class="toc-text">发起呼叫信令响应</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#会议被邀请信令"><span class="toc-text">会议被邀请信令</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#会议被邀请信令响应"><span class="toc-text">会议被邀请信令响应</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:youremail@youremailhost" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/yine" target="_blank">GitHub-YINE</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://blog.csdn.net/y_xianjun" target="_blank">CSDN-YINE</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://b2b.163.com/product/qiyu" target="_blank">Netease-WE</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">yine</span><span class="year"><i class="far fa-copyright"></i>2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://yine.github.io/" target="_blank">0度工作室</a> 倾情打造
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
