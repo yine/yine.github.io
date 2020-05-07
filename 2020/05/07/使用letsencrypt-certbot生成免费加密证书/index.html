@@ -267,7 +267,7 @@
 <h3 id="配置自动更新"><a href="#配置自动更新" class="headerlink" title="配置自动更新"></a>配置自动更新</h3><ol>
 <li>在 /home/yine/scripts 下新建脚本  corn-cerbot-auto.sh</li>
 <li>添加: <figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span><br>sudo /home/popo/scripts/certbot-auto renew --quiet<br>sudo /etc/init.d/kamailio force-reload<br></code></pre></td></tr></table></figure></li>
-<li>在计划任务中添加(crontab -e): <code>0 4 1 */2 * /home/yine/scripts/corn-cerbot-auto.sh</code></li>
+<li>在计划任务中添加(crontab -e): <code>0 4 1 */2 * /home/yine/scripts/corn-cerbot-auto.sh</code>  #每两个月的一号凌晨4点更新一次</li>
 </ol>
 <h3 id="其它生成方式"><a href="#其它生成方式" class="headerlink" title="其它生成方式"></a>其它生成方式</h3><ul>
 <li>还有其它的依赖web的生成方式,比如nginx或apache等,需要有这样的web应用在,直接使用认证文件的方式进行;</li>
