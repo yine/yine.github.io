@@ -157,7 +157,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Hello World | 0度工作室 - 匠人，如果觉得自己的作品“太棒了”的时候，就已经在走下坡路了。</title>
+    <title>fs-verto安装及使用说明 | 0度工作室 - 匠人，如果觉得自己的作品“太棒了”的时候，就已经在走下坡路了。</title>
   <meta name="generator" content="Hexo 4.2.0"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -199,7 +199,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/hello-world/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/18/fs-verto%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="yine">
        <meta itemprop="description" content="不是在新知识的探索中，就是已经在新领域探索的路上了...">
@@ -210,13 +210,21 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">Hello World</h1>
+      <h1 class="post-title" itemprop="name headline">fs-verto安装及使用说明</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12 00:00:00</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-05-18T15:16:27+08:00">2020-05-18 15:16:27</time></span>
         </span>
         
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BA%A4%E6%8D%A2/" itemprop="url" rel="index"><span itemprop="name">开源软交换</span></a></span>
+        </span>
         
         
         
@@ -224,22 +232,61 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+      <h3 id="背景说明"><a href="#背景说明" class="headerlink" title="背景说明"></a>背景说明</h3><p>在freeswitch中有mod_sofia模块支持sip协议。sip协议用于媒体链接建立前的信令交互。像mod_sofia这种模块在freeswitch中称为endpoint，除了mod_sofia，freeswitch还有一个mod_verto模块。mod_verto使用freeswitch自定义的一个协议，通过websocket进行信令交互。verto协议基于jsonRpc协议，通过json格式来传输数据。</p>
+<p>它作为一个端点存在,也就意味着可以用它来和PSTN或sip终端进行互联互通, 下面就进入实战阶段, 本篇重在安装部署，FS的安装可以按照官方文档来, 这里描述了verto模块的相关配置和启动，如果自己实在不想从头来一遍但稍了解一些docker指令可以直接通过：<code>docker pull yine/freeswitch:1.10.2-verto</code> 来拉取最新的版本进行体验。</p>
+<h3 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h3><h4 id="配置verto"><a href="#配置verto" class="headerlink" title="配置verto"></a>配置verto</h4><ol>
+<li><p><strong>修改conf/autoload_configs/verto.conf.xml</strong></p>
+<ul>
+<li>debug 设置为10 适用于调试;</li>
+<li>enable-presence 设置为false,关闭状态;</li>
+<li>outbound-codec-string 添加h264编码支持;</li>
+<li>inbound-codec-string 添加h264编码支持;</li>
+</ul>
+</li>
+<li><p><strong>为用户号码配置verto支持</strong></p>
+<ul>
+<li>修改directory/default.xml，在<params>中添加如下：<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"jsonrpc-allowed-methods"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"verto"</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"jsonrpc-allowed-event-channels"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"demo,conference,presence"</span>/&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li>每个用户的xml配置文件中conf/directory/default/1000.xml，在<params>中添加如下：<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"verto-context"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"public"</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"verto-dialplan"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"XML"</span>/&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>如需使用会议功能，请修改会议配置文件conf/autoload_configs/conference.conf.xml</strong></p>
+<ul>
+<li>在<profiles>中检查conference-flags项目，确保其中包含livearray-sync和livearray-json-status</li>
+</ul>
+</li>
+<li><p><strong>拨号计划配置</strong></p>
+<ul>
+<li>在 dialplan/default 下新建 00_verto_demo.xml 内容如下:<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">extension</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"verto-demo"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">condition</span> <span class="hljs-attr">field</span>=<span class="hljs-string">"destination_number"</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">"^(10[0-9][0-9])$"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">application</span>=<span class="hljs-string">"export"</span> <span class="hljs-attr">data</span>=<span class="hljs-string">"dialed_extension=$1"</span>/&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">application</span>=<span class="hljs-string">"set"</span> <span class="hljs-attr">data</span>=<span class="hljs-string">"call_timeout=30"</span>/&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">application</span>=<span class="hljs-string">"bridge"</span> <span class="hljs-attr">data</span>=<span class="hljs-string">"$&#123;verto_contact $&#123;dialed_extension&#125;@$&#123;dialed_domain&#125;&#125;"</span>/&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">condition</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">extension</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li>因为 Local_Extension 和上面定义的准入条件冲突,所以需要将这个拔号计划给注释掉,自己添加的才能生效;</li>
+</ul>
+</li>
+</ol>
+<h4 id="创建自签名证书"><a href="#创建自签名证书" class="headerlink" title="创建自签名证书"></a>创建自签名证书</h4><ul>
+<li><p>因为wss方式的访问是加密的，所以需要配置https方式运行demo，先创建一个自签名证书，以供freeswitch和web服务使用，注意二者需要使用同一套证书才能顺利的访问freeswitch。</p>
+</li>
+<li><p>创建自签名证书，过程中按提示输入各种信息，过程中需要openssl的支持，如果未安装请提前自行安装。</p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget http://files.freeswitch.org/downloads/ssl.ca-0.1.tar.gz<br>tar zxfv ssl.ca-0.1.tar.gz<br>cd ssl.ca-0.1/<br>perl -i -pe 's/md5/sha256/g' *.sh<br>perl -i -pe 's/1024/4096/g' *.sh<br>./new-root-ca.sh<br>./new-server-cert.sh self.zerostudio.com<br>./sign-server-cert.sh self.zerostudio.com<br>cat self.zerostudio.com.crt self.zerostudio.com.key &gt; /etc/freeswitch/tls/wss.pem   <br>/*注意此路径和verto配置文件中的相同*/<br></code></pre></td></tr></table></figure>
+<h4 id="安装web服务-以apache为例"><a href="#安装web服务-以apache为例" class="headerlink" title="安装web服务(以apache为例)"></a>安装web服务(以apache为例)</h4><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install apache2<br><br>配置apache<br>sudo a2enmod ssl<br>sudo a2enmod rewrite<br><br>修改/etc/apache2/sites-enabled/000-default.conf<br>&lt;VirtualHost *:443&gt; -- 修改为443<br>…………<br>--增加下面几行<br>SSLEngine On<br>SSLOptions +StrictRequire<br>SSLCertificateFile /etc/freeswitch/tls/wss.pem<br>SSLCertificateKeyFile /etc/freeswitch/tls/wss.pem<br>SSLCertificateChainFile /etc/freeswitch/tls/wss.pem<br>&lt;/VirtualHost&gt;<br><span class="hljs-meta">#</span><span class="bash"> vim: syntax=apache ts=4 sw=4 sts=4 sr noet</span><br></code></pre></td></tr></table></figure>
+<p>/etc/init.d/apache2 restart 启动web服务, 如出现问题用a2enmod 来加载ssl模块;</p>
+</li>
+</ul>
+<h4 id="重启apache服务"><a href="#重启apache服务" class="headerlink" title="重启apache服务"></a>重启apache服务</h4><p>sudo service apache2 restart</p>
+<h4 id="部署verto-demo"><a href="#部署verto-demo" class="headerlink" title="部署verto_demo"></a>部署verto_demo</h4><ol>
+<li>在freeswitch源码中找到video_demo cpy 到web服务目录<br><code>cp -rf ./freeswitch/html5/verto/video_demo /var/www/html</code></li>
+<li>打开浏览器（我用的Chrome）访问<a href="https://IP地址/video_demo" target="_blank" rel="noopener">https://IP地址/video_demo</a></li>
+<li>提示未信任，点高级，继续前往。</li>
+<li>至此安装完毕，其他请自行体验。</li>
+</ol>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>但实际情况总不尽人意,Debian 8.x Jessie 目前的 OpenSSL 版本还是 1.0.1，不支持 ALPN 的最低要求 1.0.2，所以我们升级到1.0.2的版本,线上环境最好是用Debian9来进行,兼容性会更好, 如果实在想在debian8上升级,建议源码安装再修改环境变量,但是这种方式需要你重新编译你的可执行程序。</p>
+<h4 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h4>
     </main>
     <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BA%A4%E6%8D%A2/" rel="tag"><i class="fas fa-tags"></i>开源软交换</a>
+        
+      </div>
       
     </footer>
   </article>
@@ -271,10 +318,10 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
+      <a href="/2020/05/07/%E4%BD%BF%E7%94%A8letsencrypt-certbot%E7%94%9F%E6%88%90%E5%85%8D%E8%B4%B9%E5%8A%A0%E5%AF%86%E8%AF%81%E4%B9%A6/" rel="next" title="使用letsencrypt-certbot生成免费加密证书"><i class="fas fa-angle-left"></i><span class="nav-title">使用letsencrypt-certbot生成免费加密证书</span></a>
+      
     </div>
     <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2020/04/14/github%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%86%99%E4%BD%9C/" rel="prev" title="github上的第一次写作"><span class="nav-title">github上的第一次写作</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -301,7 +348,7 @@
       "client_secret": "0e8b2e216fa2f8a0f7e436690c4363b80c61ab25",
       "no_comment": "这个页面还没有评论，现在就去评论吧！",
       "go_to_comment": "去评论",
-      "issue_title": "Hello World",
+      "issue_title": "fs-verto安装及使用说明",
       "btn_class": "button",
       "comments_target": "#comment-thread"
     });
@@ -396,7 +443,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#背景说明"><span class="toc-text">背景说明</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#系统配置"><span class="toc-text">系统配置</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#配置verto"><span class="toc-text">配置verto</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#创建自签名证书"><span class="toc-text">创建自签名证书</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#安装web服务-以apache为例"><span class="toc-text">安装web服务(以apache为例)</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#重启apache服务"><span class="toc-text">重启apache服务</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#部署verto-demo"><span class="toc-text">部署verto_demo</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#问题汇总"><span class="toc-text">问题汇总</span></a></li></ol></li></ol></div>
     </div>
     
     
